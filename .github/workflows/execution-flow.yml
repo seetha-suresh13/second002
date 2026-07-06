@@ -50,8 +50,9 @@ jobs:
       - name: Cache dependencies
         id: cache
         uses: actions/cache@v4
-          path: ~/.npm
-          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+        with:
+           path: ~/.npm
+           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
         run: npm ci
       - name: Build website
